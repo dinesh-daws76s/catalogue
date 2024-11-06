@@ -19,6 +19,7 @@ pipeline {
                     // Print the version
                     echo "Version: ${packageVersion}"
             }
+          }
         }
         stage('Configure') {
             steps {
