@@ -23,10 +23,11 @@ pipeline {
             steps {
                sh """
                    npm install 
+                   ls -la
                """
             }
         }
-        stage('deploy') {
+        stage('Build') {
              steps {
                 sh """
                    echo "This stage is Deployment stage"
