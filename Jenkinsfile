@@ -3,7 +3,7 @@ pipeline {
         label 'agent'
     }
     environment {
-          packageVersion = ' '
+          packageVersion = ''
           }
 
     stages {
@@ -11,16 +11,16 @@ pipeline {
             steps {
                script {
                     // Read the JSON file
-                    def package = readJSON file: 'package.json'
+                    def packageJson = readJSON file: 'package.json'
                     
                     // Access the version value
-                    packageVersion = package.version
+                    packageVersion = packageJson.version
                     
                     // Print the version
-                    echo "Version: ${packageVersion}"
-            }
-          }
-        }
+                    echo "application version: $packageVersion"
+                 }
+              }
+           }
         stage('Configure') {
             steps {
                 echo 'This is build 2'
