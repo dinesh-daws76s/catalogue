@@ -3,13 +3,21 @@ pipeline {
         label 'agent'
     }
     environment {
-          NAME = 'dinesh babu Ramayanam'
+          packageVersion = ' '
           }
 
     stages {
-        stage('build') {
+        stage('getpackageversion') {
             steps {
-                echo 'This is build 2'
+               script {
+                    // Read the JSON file
+                    def package = readJSON file: 'package.json'
+                    
+                    // Access the version value
+                    packageVersion = package.version
+                    
+                    // Print the version
+                    echo "Version: ${packageVersion}"
             }
         }
         stage('Configure') {
