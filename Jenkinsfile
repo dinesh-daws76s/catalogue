@@ -19,9 +19,11 @@ pipeline {
                  }
               }
            }
-        stage('Configure') {
+        stage('Installing dependencies') {
             steps {
-                echo 'This is build 2'
+               sh """
+                   npm install 
+               """
             }
         }
         stage('deploy') {
