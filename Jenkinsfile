@@ -38,7 +38,7 @@ pipeline {
     }
     success {
         sh """
-          echo "My name is $NAME"
+          echo "JOB is successful"
         """
     }
     unsuccessful {
