@@ -23,14 +23,16 @@ pipeline {
             steps {
                sh """
                    npm install 
-                   ls -la
+                   
                """
             }
         }
         stage('Build') {
              steps {
                 sh """
-                   echo "This stage is Deployment stage"
+                   ls -la
+                   zip -r -q catalogue.zip ./* -x ".git" -x "*.zip"
+                   ls -l
                 """
             }
         }
@@ -38,6 +40,7 @@ pipeline {
   post { 
     always {
         echo 'This will execute always when job executed'
+        deleteDir()
     }
     success {
         sh """
