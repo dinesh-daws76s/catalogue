@@ -42,9 +42,9 @@ pipeline {
                nexusArtifactUploader(
                             nexusVersion: NEXUS3,
                             protocol: HTTP,
-                            nexusUrl: ${NEXUS_URL},
+                            nexusUrl: $NEXUS_URL,
                             groupId: com,
-                            version: ${packageVersion},
+                            version: $packageVersion,
                             repository: roboshop,
                             credentialsId: nexus_id,
                             artifacts: [
