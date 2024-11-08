@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
           packageVersion = ''
+          NEXUS_URL = '3.90.153.181:8081'
           }
 
     stages {
@@ -34,6 +35,25 @@ pipeline {
                    zip -r -q catalogue.zip ./* -x ".git" -x "*.zip"
                    ls -l
                 """
+            }
+        }
+        stage('Pushing Artifacts to Nexus') {
+             steps {
+               nexusArtifactUploader(
+                            nexusVersion: NEXUS3,
+                            protocol: HTTP,
+                            nexusUrl: ${NEXUS_URL},
+                            groupId: com,
+                            version: ${packageVersion},
+                            repository: roboshop,
+                            credentialsId: nexus_id,
+                            artifacts: [
+                                // Artifact generated such as .jar, .ear and .war files.
+                                [artifactId: catalogue.zip,
+                                classifier: '',
+                                file: catalogue.zip,
+                                type: zip],
+
             }
         }
     }
