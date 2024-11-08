@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
           packageVersion = ''
-          NEXUS_URL = '3.90.153.181:8081'
+          NEXUS_URL = '52.90.203.15:8081'
           }
 
     stages {
