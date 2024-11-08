@@ -53,7 +53,8 @@ pipeline {
                                 classifier: '',
                                 file: catalogue.zip,
                                 type: zip],
-
+                        ]
+                  );
             }
         }
     }
