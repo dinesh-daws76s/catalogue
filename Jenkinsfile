@@ -40,21 +40,21 @@ pipeline {
         stage('Pushing Artifacts to Nexus') {
              steps {
                nexusArtifactUploader(
-                            nexusVersion: NEXUS3,
-                            protocol: HTTP,
-                            nexusUrl: $NEXUS_URL,
-                            groupId: com,
-                            version: $packageVersion,
-                            repository: roboshop,
-                            credentialsId: nexus_id,
+                            nexusVersion: 'nexus3',
+                            protocol: 'http',
+                            nexusUrl: "${NEXUS_URL}",
+                            groupId: 'com.roboshop',
+                            version: "${packageVersion}",
+                            repository: 'catalogue',
+                            credentialsId: 'nexus_id',
                             artifacts: [
                                 // Artifact generated such as .jar, .ear and .war files.
-                                [artifactId: catalogue.zip,
+                                [artifactId: 'catalogue',
                                 classifier: '',
-                                file: catalogue.zip,
-                                type: zip],
+                                file: 'catalogue.zip',
+                                type: 'zip'],
                         ]
-                  );
+                  )
             }
         }
     }
