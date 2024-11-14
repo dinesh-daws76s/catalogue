@@ -64,12 +64,10 @@ pipeline {
                     string(name: 'version', value: "${packageVersion}"),
                     string(name: 'environment', value: "test")
                 
-                 ]
-            )
-         }
-       }
-
-
+                    ]
+               )
+            }
+          }
             
         }
     }
@@ -87,4 +85,3 @@ pipeline {
         echo 'This will execute at them time of job failed'
     }
   }
- }
