@@ -57,7 +57,7 @@ pipeline {
                   )
             }
         }
-        stage ('Build') {
+        stage ('Deploy-artifact') {
             steps {
                 build(job: 'catalogue-Deploy',  wait: true, parameters: [
                     
