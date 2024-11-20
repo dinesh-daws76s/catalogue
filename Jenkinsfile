@@ -51,7 +51,7 @@ pipeline {
                             groupId: 'com.roboshop',
                             version: "${packageVersion}",
                             repository: 'catalogue',
-                            credentialsId: 'nexus_agent',
+                            credentialsId: 'nexus-agent',
                             artifacts: [
                                 // Artifact generated such as .jar, .ear and .war files.
                                 [artifactId: 'catalogue',
