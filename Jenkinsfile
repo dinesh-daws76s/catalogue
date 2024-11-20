@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    
+    agent {
+      node {
+        label 'jenkins-agent'
+      }
+    }
     environment {
           packageVersion = ''
           NEXUS_URL = '18.215.235.108:8081'
