@@ -2,7 +2,7 @@ pipeline {
     
     agent {
       node {
-        label 'jenkins-agent'
+        label 'jenkins-node'
       }
     }
     environment {
